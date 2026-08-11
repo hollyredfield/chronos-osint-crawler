@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroSearch - Viaja en el Tiempo de la Web</title>
+    <meta name="description" content="Busca y explora resultados históricos de Google tal y como eran entre 2012 y 2019, abriendo las páginas web exactas de esa época.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- Background Animated Gradients -->
+    <div class="bg-gradient-glow"></div>
+    <div class="bg-grid-overlay"></div>
+
+    <main class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-container">
+                <div class="logo-icon">⏳</div>
+                <h1 class="logo-text">Retro<span>Search</span></h1>
+            </div>
+            <p class="tagline">Explora la Web del pasado. Introduce tu búsqueda y viaja a través del tiempo.</p>
+        </header>
+
+        <!-- Search Card (Glassmorphic) -->
+        <section class="search-card">
+            <form id="search-form" class="search-form">
+                <div class="search-input-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="search-input" placeholder="¿Qué quieres buscar en el pasado?" autocomplete="off" required>
+                    <button type="submit" class="btn-submit" aria-label="Buscar">
+                        <span class="arrow-icon">→</span>
+                    </button>
+                </div>
+
+                <!-- Premium Timeline (Apple/Twitter Style) -->
+                <div class="timeline-container">
+                    <label class="timeline-label">Selecciona el año de destino:</label>
+                    <div class="timeline-slider-wrapper">
+                        <div class="timeline-track"></div>
+                        <div class="timeline-options">
+                            <button type="button" class="year-btn active" data-year="2012">2012</button>
+                            <button type="button" class="year-btn" data-year="2013">2013</button>
+                            <button type="button" class="year-btn" data-year="2014">2014</button>
+                            <button type="button" class="year-btn" data-year="2015">2015</button>
+                            <button type="button" class="year-btn" data-year="2016">2016</button>
+                            <button type="button" class="year-btn" data-year="2017">2017</button>
+                            <button type="button" class="year-btn" data-year="2018">2018</button>
+                            <button type="button" class="year-btn" data-year="2019">2019</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Engine Filters -->
+        <section class="filters-container">
+            <button type="button" class="filter-btn active" data-category="all">🌐 Todo</button>
+            <button type="button" class="filter-btn" data-category="news">📰 Noticias</button>
+            <button type="button" class="filter-btn" data-category="tech">💻 Tecnología</button>
+            <button type="button" class="filter-btn" data-category="blogs">✍️ Blogs</button>
+            <button type="button" class="filter-btn" data-category="wikipedia">📚 Wikipedia</button>
+        </section>
+
+        <!-- Loader -->
+        <div id="loader" class="loader-container hidden">
+            <div class="loader-spinner"></div>
+            <p class="loader-text">Buscando archivos e indexando capturas temporales...</p>
+        </div>
+
+        <!-- Results Area -->
+        <section id="results-section" class="results-section hidden">
+            <div class="results-header">
+                <h2>Resultados del año <span id="target-year-display">2012</span></h2>
+                <span id="results-count" class="badge">0 resultados</span>
+            </div>
+            <div id="results-grid" class="results-grid">
+                <!-- Dynamic cards will be loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p>© 2026 RetroSearch. Impulsado por Wayback Machine & Antigravity.</p>
+    </footer>
+
+    <!-- Script -->
+    <script src="/static/app.js"></script>
+</body>
+</html>

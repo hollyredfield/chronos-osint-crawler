@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronos OSINT Crawler</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <span class="icon">⌛</span>
+                <h1>Chronos OSINT Crawler</h1>
+            </div>
+            <p>Máquina del tiempo para recuperar URLs bloqueadas o desaparecidas de la web.</p>
+        </header>
+
+        <main>
+            <section class="search-panel">
+                <form id="searchForm">
+                    <div class="input-group">
+                        <label for="url">URL o Término de Búsqueda</label>
+                        <input type="text" id="url" required placeholder="Ej: https://forbes.com/news/ o 'enamorado de mi hermana'" autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <label for="date">Fecha o Año (YYYY o YYYY-MM-DD)</label>
+                        <input type="text" id="date" required placeholder="2010 o 2010-05-12">
+                    </div>
+                    
+                    <div class="modules-group">
+                        <label>Plataformas e Índices Integrados (2010–2026):</label>
+                        <div class="checkboxes">
+                            <label><input type="checkbox" name="module" value="common_crawl" checked> Common Crawl (Archivos WARC)</label>
+                            <label><input type="checkbox" name="module" value="search_engines" checked> Motores & Dorking (DDG, Yahoo, Bing)</label>
+                            <label><input type="checkbox" name="module" value="social" checked> GitHub & HackerNews</label>
+                            <label><input type="checkbox" name="module" value="deep_web" disabled title="Requiere Tor proxy local"> Deep Web (Onion)</label>
+                        </div>
+                        <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.8rem;">
+                            Incluye dorking especializado en: <strong>TuSecreto, ForoCoches, Mediavida, Taringa, Ask.fm, Tumblr, Blogspot, Doctoralia, Psicología-Online, 20Minutos, ElConfidencial y +20 redes históricas.</strong>
+                        </p>
+                    </div>
+                    
+                    <button type="submit" id="submitBtn">
+                        <span class="btn-text">INICIAR RASTREO</span>
+                        <div class="spinner hidden"></div>
+                    </button>
+                </form>
+            </section>
+
+            <section class="results-panel hidden" id="resultsPanel">
+                <div class="results-header">
+                    <h2>Resultados de Inteligencia</h2>
+                    <span class="badge" id="resultsCount">0 Encontrados</span>
+                </div>
+                
+                <div class="results-layout">
+                    <div class="timeline" id="timelineContainer">
+                        <!-- Resultados inyectados por JS -->
+                    </div>
+                    
+                    <div class="preview-panel">
+                        <h3>Vista Previa Reconstruida</h3>
+                        <p class="subtitle">Captura procesada en servidor. Navegación segura (No JS, No Cookies locales).</p>
+                        <div class="image-container" id="previewContainer">
+                            <div class="placeholder">
+                                <span class="icon">👁️</span>
+                                <p>Esperando captura de página...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
